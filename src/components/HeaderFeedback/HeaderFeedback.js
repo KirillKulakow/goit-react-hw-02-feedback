@@ -2,6 +2,7 @@ import React from 'react';
 import { 
     FBButton
 } from './HeaderFeedback.styled';
+import PropTypes from 'prop-types';
 
 const HeaderFeedback = ({plusFeedBack}) => {
     const addGoodFB = () => {
@@ -20,5 +21,9 @@ const HeaderFeedback = ({plusFeedBack}) => {
             <FBButton onClick={addBadFB}>Bad</FBButton>
     </>
 };
+
+HeaderFeedback.propTypes = {
+    plusFeedBack: PropTypes.any.isRequired
+}
 
 export default HeaderFeedback;

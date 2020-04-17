@@ -3,6 +3,7 @@ import {
     StatItem
 } from './Statistics.styled';
 import Notification from '../Notification/Notification';
+import PropTypes from 'prop-types';
 
 const Statistics = ({statistic}) => {
     return statistic.isEmpty ? 
@@ -18,5 +19,17 @@ const Statistics = ({statistic}) => {
         <StatItem>Positive feedback: {statistic.percentage} %</StatItem>
     </>)
 };
+
+Statistics.propTypes = {statistic: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    percentage: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string
+    ]).isRequired,
+    isEmpty: PropTypes.bool.isRequired
+})}
 
 export default Statistics;
